@@ -1,6 +1,7 @@
 """
 Contains bunch of buggy examples
-Taken from https://hackernoon.com/10-common-security-gotchas-in-python-and-how-to-avoid-them-e19fbe265e03
+Taken from:
+  https://hackernoon.com/10-common-security-gotchas-in-python-and-how-to-avoid-them-e19fbe265e03
 """
 
 import base64
@@ -11,12 +12,14 @@ import flask
 
 # Input injection
 def transcode_file(request, filename):
+    '''Doc string for transcode_file'''
     command = 'ffmpeg -i "{source}" output_file.mpg'.format(source=filename)
     subprocess.call(command, shell=True)  # a bad idea!
 
 
 # Assert statements
 def asserts(request, user):
+    '''Doc string for asserts'''
     assert user.is_admin, 'user does not have access'
     assert request, 'user is None'
     # secure code...
@@ -30,7 +33,7 @@ class RunBinSh():
 
     def random_method(self):
         '''Doc string for random_method'''
-        return "random text"
+        return "random text: " + str(self)
 
 def import_urlib_version(version):
     '''Doc string for import_urlib_version'''
