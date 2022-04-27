@@ -34,7 +34,8 @@ class RunBinSh():
 
 def import_urlib_version(version):
     '''Doc string for import_urlib_version'''
-    exec("import urllib%s as urllib" % version)
+    # exec("import urllib%s as urllib" % version)
+    urllib = __import__("urllib%s" % version)
 
 @app.route('/')
 def index():
